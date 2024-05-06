@@ -1,8 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <pthread.h>
+#define N 20 //Número de iterações da série de Taylor
+long double eEstimado = 0;
 typedef struct {
-    int startRow;
-    int endRow;
+    int fracaoInicial;
+    int fracaoFinal;
 } ThreadData;
 
 long double fat(int n){
@@ -10,34 +13,53 @@ long double fat(int n){
 	for (int i = n; i > 0; i--){
 		result = result*i;
 	}
-	return result:
+	return result;
 }
 
 
 void* calculoEParcial(void* arg) {
     ThreadData* data = (ThreadData*)arg;
-    int i = data->startRow;
-    long double fat = fat(i);
-    long double eParcial = 1.0/mod;
+    int i = data->fracaoInicial;
+    long double fatAtual = fat(i);
+    long double eParcial = 1.0/fatAtual;
     i++;
-    for (i; i <= data->endRow; i++) {
-	    fat = fat*i;
-	    eParcial += 1.0/fat;
+    for (i; i <= data->fracaoFinal; i++) {
+	    fatAtual = fatAtual*i;
+	    eParcial += 1.0/fatAtual;
     }
+    printf("E parcial para a thread %d: %0.70Lf\n",data->fracaoInicial, eParcial); 
+    eEstimado += eParcial;
     pthread_exit(NULL);
 }
 
-long double calculoE(int n){
-        long double eEstimado = 2.0;
-        long double fat = 1.0;
-        for (int i = 2; i < n; i++){
-                fat = fat*i;
-                eEstimado += 1.0/fat;
-                printf("%0.100Lf\n", eEstimado);
-        }
-        return eEstimado;
-}
+int main(int argc, char *argv[]){
+	int numThreads = atoi(argv[1]);
+	if (numThreads <= 0) {
+		printf("Número de threads deve ser maior que 0.\n");
+	       	return 1;
+	}
+    if (numThreads > N) numThreads = N;
+    pthread_t threads[numThreads];
+    ThreadData threadData[numThreads];
 
-int main(int argc){
-        printf("%0.100Lf\n",calculoE(200));
+    int fracoesPorThread = N / numThreads;
+    int fracoesExtras = N % numThreads;
+
+    int fracaoAtual = 0;
+    for (int i = 0; i < numThreads; i++) {
+        threadData[i].fracaoInicial = fracaoAtual;
+        fracaoAtual += fracoesPorThread + (fracoesExtras > 0 ? 1 : 0); // Distribui frações extras
+        threadData[i].fracaoFinal = fracaoAtual - 1;
+        fracoesExtras--;
+
+        if (pthread_create(&threads[i], NULL, calculoEParcial, (void*)&threadData[i])) {
+            printf("Erro ao criar thread\n");
+            exit(-1);
+        }
+    }
+
+    for (int i = 0; i < numThreads; i++) {
+        pthread_join(threads[i], NULL);
+    }
+    printf("e Estimado: %0.70Lf\n", eEstimado);
 }
