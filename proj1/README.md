@@ -1,5 +1,7 @@
 Projeto realizado por:
+
 Arthur de Pina Balduino Leitão - 10400677
+
 Luiz Henrique Bonilha Pasquinelli - 10401415
 
 Todas as execuções foram realizadas no processador com as seguintes especificações:
