@@ -11,5 +11,5 @@ long double calculoE(int n){
 }
 
 int main(void){
-        printf("%0.70Lf\n",calculoE(21));
+        printf("%0.70Lf\n",calculoE(60));
 }
