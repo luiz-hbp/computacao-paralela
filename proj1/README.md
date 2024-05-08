@@ -4,6 +4,12 @@ Arthur de Pina Balduino Leitão - 10400677
 
 Luiz Henrique Bonilha Pasquinelli - 10401415
 
+Gráfico do Tempo de Execução em ms X N processadores
+
+
+![image](https://github.com/luiz-hbp/computacao-paralela/assets/144058147/a2d9d9bf-9c57-4653-a5d5-a408ce892408)
+
+
 Todas as execuções foram realizadas no processador com as seguintes especificações:
 
 processor       : 0
