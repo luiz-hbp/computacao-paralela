@@ -11,6 +11,12 @@ Luiz Henrique Bonilha Pasquinelli - 10401415
 ![image](https://github.com/luiz-hbp/computacao-paralela/assets/144058147/a2d9d9bf-9c57-4653-a5d5-a408ce892408)
 
 
+<b>Gráfico de Speedup X N processadores</b>
+
+
+![image](https://github.com/luiz-hbp/computacao-paralela/assets/144058147/37d38140-c685-411b-8f65-088711ee885c)
+
+
 Todas as execuções foram realizadas no processador com as seguintes especificações:
 
 processor       : 0
