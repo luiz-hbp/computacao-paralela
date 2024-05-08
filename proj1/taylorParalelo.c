@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
-#define N 60 //Número de iterações da série de Taylor
+#define N 5000 //Número de iterações da série de Taylor
 pthread_mutex_t m;
 long double eEstimado = 0;
 typedef struct {
@@ -29,7 +29,7 @@ void* calculoEParcial(void* arg) {
 	    fatAtual = fatAtual*i;
 	    eParcial += 1.0/fatAtual;
     }
-    printf("E parcial para a thread %d: %0.70Lf\n",data->threadId, eParcial);
+    //printf("E parcial para a thread %d: %0.70Lf\n",data->threadId, eParcial);
     pthread_mutex_lock(&m); 
     eEstimado += eParcial;
     pthread_mutex_unlock(&m);
