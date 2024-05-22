@@ -1,8 +1,8 @@
 Projeto realizado por:
 
-Arthur de Pina Balduino Leitão - 10400677
+<h2>Arthur de Pina Balduino Leitão - 10400677
 
-Luiz Henrique Bonilha Pasquinelli - 10401415
+Luiz Henrique Bonilha Pasquinelli - 10401415</h2>
 
 
 <b>Gráfico do Tempo de Execução em ms X N processadores</b>
