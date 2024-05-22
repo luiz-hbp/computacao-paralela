@@ -16,6 +16,19 @@ Luiz Henrique Bonilha Pasquinelli - 10401415</h2>
 
 ![image](https://github.com/luiz-hbp/computacao-paralela/assets/144058147/37d38140-c685-411b-8f65-088711ee885c)
 
+<h3> Ao aumentar o número de séries calculado o ganho de performance com o paralelismo fica mais evidente, gŕaficos para 10000000 de séries de taylor</h3>
+
+<b>Gráfico do Tempo de Execução em s X N processadores</b>
+
+
+![image](https://github.com/luiz-hbp/computacao-paralela/assets/144058147/d162baa6-54ee-44aa-a03d-e6af3bf1e990)
+
+
+<b>Gráfico de Speedup X N processadores</b>
+
+
+![image](https://github.com/luiz-hbp/computacao-paralela/assets/144058147/f47e0b58-7759-45f8-8bca-3460957b257b)
+
 
 Todas as execuções foram realizadas no processador com as seguintes especificações:
 
