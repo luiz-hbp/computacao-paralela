@@ -3,7 +3,7 @@
 #include <pthread.h>
 #include <mpfr.h>
 #include <gmp.h>
-#define N 1000000 //Número de iterações da série de Taylor
+#define N 100000 //Número de iterações da série de Taylor
 pthread_mutex_t m; //Declaração de variáveis globais que as threads acessam
 mpfr_t eEstimado;
 typedef struct {//Estrutura ThreadData usada para gerenciar as threads
